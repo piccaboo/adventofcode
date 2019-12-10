@@ -1,5 +1,6 @@
 const express = require("express");
 const fs = require('fs');
+const { day3_2019 } = require('./functions/2019/day3');
 
 const PORT = 3000;
 const app = express();
@@ -13,19 +14,14 @@ const readData = (year, day) => fs.readFileSync(`server/files/${year}/day${day}.
 });
 
 const getAnswerByYearAndDay = (year, day) => {
-    let answer1;
-    let answer2;
-
+    let answers;
     switch(`${year}-${day}`) {
         case '2019-3':
-            answer1 = 'hej';
-            answer2 = 'svejs';
+            answers = day3_2019();
         default:
             break;
     }
-    return {
-        answer1,
-        answer2,
+    return {...answers
     }
 };
 
