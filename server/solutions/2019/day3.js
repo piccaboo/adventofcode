@@ -12,10 +12,17 @@ function day3(year, day) {
     const linesA = [];
     let move;
     wireA.map(w => {
-        return [+w.substring(1), w.substring(0,1)];
+        return {
+            end: +w.substring(1),
+            move: w.substring(0,1)
+        };
     }).map(data => {
-        linesA.push([start, data[0], data[1]]);
-        start = data[0];
+        linesA.push({
+            start,
+            end: data.end,
+            move: data.move,
+        });
+        start = data.end;
     });
 
     return {
