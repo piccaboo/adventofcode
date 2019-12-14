@@ -9,6 +9,14 @@ const readData = (year, day) => fs.readFileSync(`server/files/${year}/day${day}.
     }
 });
 
+const readTestData = (year, day, test) => fs.readFileSync(`server/files/${year}/day${day}test${test}.txt`, {"encoding": "utf8"}, (error, data) => {
+    if (error) {
+        throw new Error(`could not read the file: ${error}`);
+    } else {
+        return data;
+    }
+});
+
 const textToArray = (data, splitWithChar) => {
     const array = data.split(splitWithChar);
     return array;
@@ -17,4 +25,5 @@ const textToArray = (data, splitWithChar) => {
 module.exports = {
     readData: (year, day) => readData(year, day),
     textToArray: (data, splitWithChar) => textToArray(data, splitWithChar),
+    readTestData: (year, day, test) => readTestData(year, day, test),
 };
