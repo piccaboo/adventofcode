@@ -9,6 +9,8 @@ const getSolutionsByYearAndDay = async (year, day) => {
     switch(`${year}-${day}`) {
         case '2019-3':
             payload = await solutions[2019].day3(year, day);
+        case '2019-4':
+            payload = await solutions[2019].day4(year, day);
         default:
             break;
     }
